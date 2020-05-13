@@ -4,6 +4,7 @@ import PathfindingVisualizer from "../pages/Pathfinding";
 import Home from "../pages/Home";
 import Error from "../pages/Error";
 import User from "../pages/User";
+import Profile from "../pages/Profile";
 
 const Routes = () => {
   return (
@@ -12,6 +13,7 @@ const Routes = () => {
       <Route exact path="/home" component={Home} />
       <Route exact path="/algorithm/:slug" component={PathfindingVisualizer} />
       <Route exact path="/login-and-register" component={User} />
+      <Route exact path="/profile" component={Profile} />
       <Route component={Error} />
     </Switch>
   );
