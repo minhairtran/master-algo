@@ -1,8 +1,9 @@
 import React from 'react';
-import loadFeedbacks from './feedback';
+import loadFeedbacks from './feedback/loadFeedbacks';
+import createFeedback from './feedback/createFeedback'
 
 export {
-    loadFeedbacks
+    loadFeedbacks, createFeedback
 }
 
 export const lookup = (method, endpoint, callback, data) => {

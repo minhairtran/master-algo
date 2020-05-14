@@ -1,8 +1,7 @@
-import React from 'react';
-import lookup from './index'
+import lookup from '../index'
 
 export const loadFeedbacks = (callback) => {
       lookup("GET", "/feedbacks/", callback)
   }
 
-export default loadFeedbacks
+export default loadFeedbacks;
