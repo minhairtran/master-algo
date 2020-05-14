@@ -30,7 +30,7 @@ def home_view(request, *args, **kwargs):
 # @authentication_classes([SessionAuthentication, MyCustomAuth])
 @permission_classes([IsAuthenticated]) # REST API course
 def feedback_create_view(request, *args, **kwargs):
-    serializer = FeedbackCreateSerializer(data=request.POST)
+    serializer = FeedbackCreateSerializer(data=request.data)
     if serializer.is_valid(raise_exception=True):
         serializer.save(user=request.user)
         return Response(serializer.data, status=201)

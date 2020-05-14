@@ -64,7 +64,6 @@ function handleFeedbackFormError(msg, display){
 function handleFeedbackCreateFormDidSumbit(event) {
     event.preventDefault()
     const myForm = event.target
-    console.log(myForm)
     const myFormData = new FormData(myForm)
     const url = myForm.getAttribute("action")
     const method = myForm.getAttribute("method")

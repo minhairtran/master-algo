@@ -1,7 +1,7 @@
 import lookup from "../index";
 
-export const createFeeback = (callback, data) => {
-  lookup("POST", "/feedbacks/create/", callback, data);
+export const createFeeback = (newFeedback, callback) => {
+  lookup("POST", "/feedbacks/create/", callback, newFeedback);
 };
 
 export default createFeeback;
