@@ -10,12 +10,15 @@ const Profile = (props) => {
     event.preventDefault();
     const newVal = textAreaRef.current.value;
     let tempNewFeedback = [...newFeedback];
-    // change this to a server side call
-    tempNewFeedback.unshift({
-      content: newVal,
-      id: 12313,
+    createFeedback(newVal, (response, status) => {
+      if (status === 201) {
+        tempNewFeedback.unshift(response);
+        setNewFeedback(tempNewFeedback);
+      } else {
+        alert("An error occur. Try again.")
+      }
     });
-    setNewFeedback(tempNewFeedback);
+    // change this to a server side call
     textAreaRef.current.value = "";
   };
   return (

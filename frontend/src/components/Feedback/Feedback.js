@@ -9,7 +9,6 @@ export const FeedbackButton = (props) => {
   useEffect(() => {
     if (location.pathname === '/Profile') {
       setFeedbackButtonDisplay(false);
-      console.log(feedbackButtonDisplay);
     } else {
       setFeedbackButtonDisplay(true);
     }
