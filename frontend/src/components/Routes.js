@@ -6,14 +6,18 @@ import Error from "../pages/Error";
 import User from "../pages/User";
 import Profile from "../pages/Profile";
 
-const Routes = () => {
+const Routes = (props) => {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/algorithm/:slug" component={PathfindingVisualizer} />
       <Route exact path="/login-and-register" component={User} />
-      <Route exact path="/profile" component={Profile} />
+      <Route
+        exact
+        path="/profile"
+        component={Profile}
+      />
       <Route component={Error} />
     </Switch>
   );

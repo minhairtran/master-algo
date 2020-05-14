@@ -1,18 +1,18 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Routes from "./components/Routes";
+import FeedbackButton from "./components/Feedback/Feedback";
 
-class App extends Component {
-  render() {
-    return (
-      <>
-        <Navbar />
-        <Routes/>
-        <Footer/>
-      </>
-    );
-  }
-}
+const App = (props) => {
+  return (
+    <>
+      <Navbar />
+      <Routes />
+      <FeedbackButton />
+      <Footer />
+    </>
+  );
+};
 
 export default App;

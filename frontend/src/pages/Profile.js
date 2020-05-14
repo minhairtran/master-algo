@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import loadFeedbacks from "../api/feedback";
+import loadFeedbacks from "../api/feedback/loadFeedbacks";
+import createFeedback from "../api/feedback/createFeedback";
 
-const Profile = () => {
+const Profile = (props) => {
   const textAreaRef = React.createRef();
   const [newFeedback, setNewFeedback] = useState([]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const newVal = textAreaRef.current.value;
@@ -17,7 +19,7 @@ const Profile = () => {
     textAreaRef.current.value = "";
   };
   return (
-    <div className>
+    <div>
       <div className="col-12 mb-3">
         <form onSubmit={handleSubmit}>
           <textarea
@@ -50,13 +52,13 @@ export const FeedbacksList = (props) => {
     }
   };
 
-  useEffect(()=>{
-    const final = [...props.newFeedback].concat(feedbacksInit)
+  useEffect(() => {
+    const final = [...props.newFeedback].concat(feedbacksInit);
     if (final.length !== feedbacks.length) {
-      setFeedbacks(final)
+      setFeedbacks(final);
     }
-  }, [props.newFeedback, feedbacks, feedbacksInit])
-  
+  }, [props.newFeedback, feedbacks, feedbacksInit]);
+
   useEffect(() => {
     if (feedbacksDidSet === false) {
       loadFeedbacks(myCallback);
