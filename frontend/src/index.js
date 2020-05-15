@@ -7,16 +7,21 @@ import "bootstrap/dist/css/bootstrap.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import AlgorithmContextProvider from "./context/AlgorithmContext";
 import UserContextProvider from "./context/UserContext";
-ReactDOM.render(
-  <AlgorithmContextProvider>
-    <UserContextProvider>
-      <Router>
-        <App />
-      </Router>
-    </UserContextProvider>
-  </AlgorithmContextProvider>,
-  document.getElementById("root")
-);
+
+const root = document.getElementById("root");
+const e = React.createElement
+
+if (root) {
+  ReactDOM.render(
+    <AlgorithmContextProvider>
+      <UserContextProvider>
+        <Router>
+          {e(App, root.dataset)}
+        </Router>
+      </UserContextProvider>
+    </AlgorithmContextProvider>, root
+  );
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
