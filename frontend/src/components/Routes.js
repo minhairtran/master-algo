@@ -16,7 +16,7 @@ const Routes = (props) => {
       <Route
         exact
         path="/profile"
-        component={Profile}
+        component={() => <Profile dataset={props.dataset}/>}
       />
       <Route component={Error} />
     </Switch>

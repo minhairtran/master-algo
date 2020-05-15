@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import loadFeedbacks from "../api/feedback/loadFeedbacks";
-import createFeedback from "../api/feedback/createFeedback";
+import apiFeedbacksList from "../api/feedback/apiFeedbacksList";
+import apiFeedbackCreate from "../api/feedback/apiFeedbackCreate";
 
 const Profile = (props) => {
+  console.log(props.dataset)
   const textAreaRef = React.createRef();
   const [newFeedback, setNewFeedback] = useState([]);
 
@@ -10,7 +11,7 @@ const Profile = (props) => {
     event.preventDefault();
     const newVal = textAreaRef.current.value;
     let tempNewFeedback = [...newFeedback];
-    createFeedback(newVal, (response, status) => {
+    apiFeedbackCreate(newVal, (response, status) => {
       if (status === 201) {
         tempNewFeedback.unshift(response);
         setNewFeedback(tempNewFeedback);
@@ -36,7 +37,7 @@ const Profile = (props) => {
           </button>
         </form>
       </div>
-      <FeedbacksList newFeedback={newFeedback} />
+      <FeedbacksList newFeedback={newFeedback} dataset={props.dataset}/>
     </div>
   );
 };
@@ -64,7 +65,7 @@ export const FeedbacksList = (props) => {
 
   useEffect(() => {
     if (feedbacksDidSet === false) {
-      loadFeedbacks(myCallback);
+      apiFeedbacksList(props.dataset.username, myCallback);
     }
   }, [feedbacksInit, feedbacksDidSet, setFeedbacksDidSet]);
 

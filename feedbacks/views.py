@@ -60,7 +60,11 @@ def feedback_delete_view(request, feedback_id, *args, **kwargs):
 
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def feedback_list_view(request, *args, **kwargs):
     qs = Feedback.objects.all()
+    username = request.GET.get('username')
+    if username != None:
+        qs = qs.filter(user__username__iexact=username)
     serializer = FeedbackSerializer(qs, many=True)
     return Response(serializer.data, status=200)

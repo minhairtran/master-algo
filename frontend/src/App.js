@@ -7,8 +7,8 @@ import FeedbackButton from "./components/Feedback/Feedback";
 const App = (props) => {
   return (
     <>
-      <Navbar />
-      <Routes />
+      <Navbar/>
+      <Routes dataset={props}/>
       <FeedbackButton />
       <Footer />
     </>

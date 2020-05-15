@@ -1,8 +1,8 @@
 import React from "react";
-import loadFeedbacks from "./feedback/loadFeedbacks";
-import createFeedback from "./feedback/createFeedback";
+import apiFeedbacksList from "./feedback/apiFeedbacksList";
+import apiFeedbackCreate from "./feedback/apiFeedbackCreate";
 
-export { loadFeedbacks, createFeedback };
+export { apiFeedbacksList, apiFeedbackCreate };
 
 function getCookie(name) {
   var cookieValue = null;
