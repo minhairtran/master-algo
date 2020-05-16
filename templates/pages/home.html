@@ -120,13 +120,13 @@ const feedbacksContainerElement = document.getElementById("feedbacks")
 
 function loadFeedbacks(feedbacksElement) {
     const xhr = new XMLHttpRequest()
-    console.log(xhr)
     const method = 'GET' // "POST"
-    const url = `api/feedbacks/?username=admin`
+    const url = `api/feedbacks`
     const responseType = "json"
     xhr.responseType = responseType
     xhr.open(method, url)
-    xhr.onload = function() {
+    if(xhr.status === 200)
+    {xhr.onload = function() {
         const serverResponse = xhr.response
         const listedItems = serverResponse // array
         var finalFeedbackStr = ""
@@ -137,6 +137,10 @@ function loadFeedbacks(feedbacksElement) {
             finalFeedbackStr += currentItem
         }
         feedbacksElement.innerHTML = finalFeedbackStr
+    }
+    }
+    else{
+        alert("There was an error")
     }
     xhr.send()
 }
