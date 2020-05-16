@@ -19,6 +19,12 @@ from django.contrib import admin
 from django.urls import path, re_path, include # url()
 from django.views.generic import TemplateView
 
+from accounts.views import (
+    login_view,
+    logout_view,
+    register_view,
+)
+
 from feedbacks.views import (
     home_view, 
     feedback_delete_view,
@@ -28,6 +34,9 @@ from feedbacks.views import (
 )
 urlpatterns = [
     path('', TemplateView.as_view(template_name='react.html')),
+    path('api/login/', login_view),
+    path('api/logout/', logout_view),
+    path('api/register/', register_view),
     path('admin/', admin.site.urls),
     path('home', home_view),
     path('api/feedbacks/', include('feedbacks.urls'))

@@ -31,7 +31,7 @@ def home_view(request, *args, **kwargs):
 @permission_classes([IsAuthenticated]) # REST API course
 def feedback_create_view(request, *args, **kwargs):
     serializer = FeedbackCreateSerializer(data=request.data)
-    if serializer.is_valid(raise_exception=True):
+    if serializer.is_valid(raise_exception=True) and request.user.is_authenticated:
         serializer.save(user=request.user)
         return Response(serializer.data, status=201)
     return Response({}, status=400)
@@ -64,7 +64,7 @@ def feedback_delete_view(request, feedback_id, *args, **kwargs):
 def feedback_list_view(request, *args, **kwargs):
     qs = Feedback.objects.all()
     username = request.GET.get('username')
-    if username != None:
+    if username != None and request.user.is_authenticated:
         qs = qs.filter(user__username__iexact=username)
     serializer = FeedbackSerializer(qs, many=True)
     return Response(serializer.data, status=200)

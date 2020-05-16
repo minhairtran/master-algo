@@ -97,10 +97,10 @@ function handleFeedbackCreateFormDidSumbit(event) {
             }   
         } else if (xhr.status === 401) {
             alert("You must login!")
-            window.location.href = "/login"
+            window.location.href = "api/login"
         } else if (xhr.status === 403) {
             alert("You must login!")
-            window.location.href = "/login"
+            window.location.href = "api/login"
         }
         else if (xhr.status === 500) {
             alert("There was a server error, please try again.")
@@ -120,8 +120,9 @@ const feedbacksContainerElement = document.getElementById("feedbacks")
 
 function loadFeedbacks(feedbacksElement) {
     const xhr = new XMLHttpRequest()
+    console.log(xhr)
     const method = 'GET' // "POST"
-    const url = "api/feedbacks"
+    const url = `api/feedbacks/?username=admin`
     const responseType = "json"
     xhr.responseType = responseType
     xhr.open(method, url)
