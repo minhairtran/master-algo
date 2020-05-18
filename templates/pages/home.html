@@ -125,8 +125,8 @@ function loadFeedbacks(feedbacksElement) {
     const responseType = "json"
     xhr.responseType = responseType
     xhr.open(method, url)
-    if(xhr.status === 200)
-    {xhr.onload = function() {
+    
+    xhr.onload = function() {
         const serverResponse = xhr.response
         const listedItems = serverResponse // array
         var finalFeedbackStr = ""
@@ -138,10 +138,7 @@ function loadFeedbacks(feedbacksElement) {
         }
         feedbacksElement.innerHTML = finalFeedbackStr
     }
-    }
-    else{
-        alert("There was an error")
-    }
+    
     xhr.send()
 }
 
