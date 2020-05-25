@@ -13,6 +13,12 @@ $ git clone "https://github.com/minhairtran/visualizer-app.git"
 - Install bootstrap: npm install bootstrap@4.1.1  
 - Install facebook login API: npm install react-facebook-login --save
 - Install react router: npm i react-router-dom --save
+- Install django 2.2
+- Install python 3.7.3
+- Install pipenv
+- Install cors header
+- Install django rest_framework
+- Install Pillow
 
 ## Visulize Dijkstra video
 [Click here](https://drive.google.com/file/d/1gNahlIwsxWUNASi1hih5eal64EICZ5ym/view?usp=sharing)

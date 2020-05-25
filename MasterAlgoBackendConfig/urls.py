@@ -18,6 +18,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, re_path, include # url()
 from django.views.generic import TemplateView
+from django.conf.urls.static import static
 
 from accounts.views import (
     login_view,
@@ -39,8 +40,12 @@ urlpatterns = [
     path('api/register/', register_view),
     path('admin/', admin.site.urls),
     path('home', home_view),
-    path('api/feedbacks/', include('feedbacks.urls'))
+    path('api/feedbacks/', include('feedbacks.urls')),
+    path('api/profile/', include('profiles.urls')),
+    path('api/algorithms/', include('algorithms.urls'))
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, 

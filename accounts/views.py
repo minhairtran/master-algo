@@ -36,7 +36,7 @@ def register_view(request, *args, **kwargs):
     if form.is_valid():
         user = form.save(commit=True)
         login(request, user)
-        return redirect("/")
+        return redirect("/home")
     context = {
         "form": form,
         "btn_label": "Register",

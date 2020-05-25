@@ -1,4 +1,4 @@
-
+from profiles.serializers import PublicProfileSerializer
 from django.conf import settings
 from rest_framework import serializers
 from .models import Feedback
@@ -18,6 +18,7 @@ class FeedbackCreateSerializer(serializers.ModelSerializer):
 
 
 class FeedbackSerializer(serializers.ModelSerializer):
+    user = PublicProfileSerializer(source='user.profile', read_only=True)
     class Meta:
         model = Feedback
-        fields = ['id', 'content', 'user']
+        fields = ['id', 'content', 'timestamp', 'user']

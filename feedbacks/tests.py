@@ -35,6 +35,10 @@ class FeedbackTestCase(TestCase):
         response = client.get("/api/feedbacks/")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.json()), 3)
+
+    def test_feedback_list_related_name(self):
+        user = self.user
+        self.assertEqual(user.feedbacks.count(), 2)
     
     def test_feedback_create_api_view(self):
         request_data = {"content": "This is my test feedback"}
