@@ -35,11 +35,9 @@ from feedbacks.views import (
 )
 urlpatterns = [
     path('', TemplateView.as_view(template_name='react.html')),
-    path('api/login/', login_view),
-    path('api/logout/', logout_view),
-    path('api/register/', register_view),
     path('admin/', admin.site.urls),
     path('home', home_view),
+    path('api/', include('accounts.urls')),
     path('api/feedbacks/', include('feedbacks.urls')),
     path('api/profile/', include('profiles.urls')),
     path('api/algorithms/', include('algorithms.urls'))
