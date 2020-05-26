@@ -11,7 +11,7 @@ const Routes = (props) => {
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/home" component={Home} />
-      <Route exact path="/algorithm/:slug" component={PathfindingVisualizer} />
+      <Route exact path="/algorithms/:slug" component={PathfindingVisualizer} />
       <Route exact path="/login-and-register" component={User} />
       <Route
         exact

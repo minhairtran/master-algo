@@ -5,13 +5,15 @@ import pathfindingImage from "../images/pathfinding.png";
 export const AlgorithmContext = createContext();
 
 class AlgorithmContextProvider extends Component {
+    
+
     state={
         algorithms:[
             {
                 id: 1,
                 name: "Pathfinding",
                 image: pathfindingImage,
-                slug: "algorithm/pathfinding"
+                slug: "algorithms/pathfinding"
             }
         ],
     };
