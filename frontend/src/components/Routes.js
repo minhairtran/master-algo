@@ -12,7 +12,7 @@ const Routes = (props) => {
       <Route exact path="/" component={Home} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/algorithms/:slug" component={PathfindingVisualizer} />
-      <Route exact path="/login-and-register" component={User} />
+      <Route exact path="/login-and-register" component={() => <User dataset={props.dataset} setLoginedUser={props.setLoginedUser}/>} />
       <Route
         exact
         path="/profile"

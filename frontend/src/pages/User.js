@@ -3,7 +3,7 @@ import { UserContext } from "../context/UserContext";
 import Login from "../components/User/Login/Login";
 import Register from "../components/User/Registration/Register";
 
-const User = () => {
+const User = (props) => {
   const { login, setLogin } = useContext(UserContext);
 
   const showLoginOrRegistrationBox = () => {
@@ -14,7 +14,7 @@ const User = () => {
   return (
     <>
       <div className="container">
-        {login.isLoginOpened && <Login />}
+        {login.isLoginOpened && <Login setLoginedUser={props.setLoginedUser}/>}
         {!login.isLoginOpened && <Register />}
       </div>
       <Jump

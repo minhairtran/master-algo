@@ -1,10 +1,12 @@
 import React from "react";
 import apiFeedbacksList from "./feedback/apiFeedbacksList";
 import apiFeedbackCreate from "./feedback/apiFeedbackCreate";
-import ApiAlgorithmsList from "./algorithm/ApiAlgorithmsList"
+import ApiAlgorithmsList from "./algorithm/ApiAlgorithmsList";
+import apiLogin from "./user/ApiLogin";
 
 export { apiFeedbacksList, apiFeedbackCreate };
 export { ApiAlgorithmsList }
+export { apiLogin}
 
 function getCookie(name) {
   var cookieValue = null;
