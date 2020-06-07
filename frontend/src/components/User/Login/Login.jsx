@@ -14,8 +14,9 @@ const Login = (props) => {
       "password": password
     }
     apiLogin(user, (response, status) => {
-      if (status === 200) {
+      if (status === 201) {
         props.setLoginedUser(response);
+        // window.location.replace("/profile")
       } else {
         alert("An error occur. Try again.");
       }

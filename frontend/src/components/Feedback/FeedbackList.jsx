@@ -20,11 +20,12 @@ export const FeedbacksList = (props) => {
       if (final.length !== feedbacks.length) {
         setFeedbacks(final);
       }
-    }, [props.newFeedback, feedbacks, feedbacksInit, props.dataset.username]);
+    }, [props.newFeedback, feedbacks, feedbacksInit, "admin"]);
   
     useEffect(() => {
       if (feedbacksDidSet === false) {
-        apiFeedbacksList(props.dataset.username, myCallback);
+        console.log(props.user)
+        apiFeedbacksList("admin", myCallback);
       }
     }, [feedbacksInit, feedbacksDidSet, setFeedbacksDidSet]);
   

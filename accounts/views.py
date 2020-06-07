@@ -10,25 +10,25 @@ from .serializers import (
 )
 from rest_framework.decorators import api_view, permission_classes
 
+# def login_view(request, *args, **kwargs):
+#     print(request.POST)
+#     form = AuthenticationForm(request, data=request.POST or None)
+#     if form.is_valid():
+#         user_ = form.get_user()
+#         login(request, user_)
+#         return redirect("/home")
+#     context = {
+#         "form": form,
+#         "btn_label": "Login",
+#         "title": "Login"
+#     }
+#     return render(request, "accounts/auth.html", context)
 
-def login_view(request, *args, **kwargs):
-    form = AuthenticationForm(request, data=request.POST or None)
-    print(form)
-    if form.is_valid():
-        user_ = form.get_user()
-        login(request, user_)
-        return redirect("/home", status=200)
-    context = {
-        "form": form,
-        "btn_label": "Login",
-        "title": "Login"
-    }
-    return render(request, "accounts/auth.html", context, status=500)
 
-# @api_view(['POST', 'GET'])
+# @api_view(['POST'])
 # def login_view(request, *args, **kwargs):
 #     form = AuthenticationForm(request, data=request.POST or None)
-#     print("asdasd", form.get_user())
+#     print("asdasd", request)
 #     if form.is_valid():
 #         user_ = form.get_user()
 #         login(request, user_)
@@ -37,6 +37,25 @@ def login_view(request, *args, **kwargs):
 #         serializer = UserSerializer(obj)
 #         return Response(serializer.data, status=201)
 #     return Response({}, status=400)
+
+@api_view(['POST', 'GET'])
+def login_view(request, *args, **kwargs):
+    username = request.data.get("username")
+    password = request.data.get("password")
+    if username and password:
+            # Test username/password combination
+        user = authenticate(username=username, password=password)
+            # Found a match
+        if user is not None and user.is_active:
+                # User is active
+                # Officially log the user in
+            login(request, user)
+            qs = User.objects.filter(id=user.id)
+            obj = qs.first()
+            serializer = UserSerializer(obj)
+            return Response(serializer.data, status=201)
+        return Response({}, status=400)
+    return Response({}, status=400)
 
 
 @permission_classes([IsAuthenticated])

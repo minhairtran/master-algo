@@ -35,7 +35,7 @@ export const lookup = (method, endpoint, callback, data) => {
   const csrftoken = getCookie('csrftoken');
   xhr.open(method, url);
   xhr.setRequestHeader("Content-Type", "application/json");
-  
+  console.log(csrftoken)
   if (csrftoken) {
     // xhr.setRequestHeader("HTTP_X_REQUESTED_WITH", "XMLHttpRequest");
     xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
