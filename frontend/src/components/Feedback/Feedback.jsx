@@ -37,7 +37,7 @@ const Feedback = (props) => {
           </button>
         </form>
       </div>
-      <FeedbacksList newFeedback={newFeedback} user={props.user} />
+      <FeedbacksList newFeedback={newFeedback} loginedUser={props.loginedUser} />
     </div>
   );
 };

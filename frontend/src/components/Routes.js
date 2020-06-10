@@ -5,6 +5,7 @@ import Home from "../pages/Home";
 import Error from "../pages/Error";
 import User from "../pages/User";
 import Profile from "../pages/Profile";
+import Logout from "./User/Logout/Logout";
 
 const Routes = (props) => {
   return (
@@ -16,7 +17,12 @@ const Routes = (props) => {
       <Route
         exact
         path="/profile"
-        component={() => <Profile user={props.user}/>}
+        component={() => <Profile loginedUser={props.loginedUser}/>}
+      />
+      <Route
+        exact
+        path="/logout"
+        component={() => <Logout loginedUser={props.loginedUser}/>}
       />
       <Route component={Error} />
     </Switch>

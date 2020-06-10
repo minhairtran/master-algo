@@ -2,6 +2,7 @@ import React from "react";
 import apiLogin from "../../../api/user/ApiLogin";
 
 const Login = (props) => {
+  const {setLoginedUser} = props
   const emailRef = React.createRef();
   const passwordRef = React.createRef();
 
@@ -15,8 +16,8 @@ const Login = (props) => {
     }
     apiLogin(user, (response, status) => {
       if (status === 201) {
-        props.setLoginedUser(response);
-        // window.location.replace("/profile")
+        localStorage.setItem("username", response.username)
+        window.location.replace("/profile")
       } else {
         alert("An error occur. Try again.");
       }

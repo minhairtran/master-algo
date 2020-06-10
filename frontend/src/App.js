@@ -9,8 +9,8 @@ const App = (props) => {
 
   return (
     <>
-      <Navbar />
-      <Routes user={loginedUser} setLoginedUser={setLoginedUser} />
+      <Navbar loginedUser={loginedUser} setLoginedUser={setLoginedUser}/>
+      <Routes loginedUser={loginedUser} setLoginedUser={setLoginedUser} />
       <FeedbackButton />
       <Footer />
     </>

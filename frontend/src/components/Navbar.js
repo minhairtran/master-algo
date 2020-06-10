@@ -26,14 +26,29 @@ const Navbar = (props) => {
                 About
               </a>
             </li>
-            <li className="nav-item">
-              <a
-                className="nav-link"
-                href="http://localhost:3000/login-and-register"
-              >
-                Login
-              </a>
-            </li>
+            {localStorage.getItem("username") ? (
+              <>
+                <li className="nav-item">
+                  <a className="nav-link" href="http://localhost:3000/profile">
+                    Profile
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="http://localhost:3000/logout">
+                    Log out
+                  </a>
+                </li>
+              </>
+            ) : (
+              <li className="nav-item">
+                <a
+                  className="nav-link"
+                  href="http://localhost:3000/login-and-register"
+                >
+                  Login
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       </div>
