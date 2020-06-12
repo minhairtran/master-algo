@@ -202,7 +202,9 @@ hr.light-bottom {
   background-color: white;
 }
 
-
+.node-row{
+  height: 25px;
+}
 
 .node-visited {
   animation-name: visitedAnimation;

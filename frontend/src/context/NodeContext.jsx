@@ -1,7 +1,9 @@
 import React, { Component, createContext } from "react";
 
-import { dijkstra, getNodesInShortestPathOrder } from "../components/Pathfinding/dijkstra";
-
+import {
+  dijkstra,
+  getNodesInShortestPathOrder,
+} from "../components/Pathfinding/dijkstra";
 
 export const NodeContext = createContext();
 
@@ -11,12 +13,11 @@ const FINISH_NODE_ROW = 10;
 const FINISH_NODE_COL = 35;
 
 class NodeContextProvider extends Component {
-
   //tạo giá trị các ô
   state = {
     grid: [],
     algoSpeed: 1,
-    mouseIsPressed: false
+    mouseIsPressed: false,
   };
 
   componentDidMount() {
@@ -53,8 +54,15 @@ class NodeContextProvider extends Component {
       }
       setTimeout(() => {
         const node = visitedNodesInOrder[i];
-        document.getElementById(`node-${node.row}-${node.col}`).className =
-          "node node-visited";
+        if (
+          document.getElementById(`node-${node.row}-${node.col}`).className !=
+            "node node-start" &&
+          document.getElementById(`node-${node.row}-${node.col}`).className !=
+            "node node-finish"
+        ) {
+          document.getElementById(`node-${node.row}-${node.col}`).className =
+            "node node-visited";
+        }
       }, 10 * this.state.algoSpeed * i);
     }
   }
@@ -63,8 +71,15 @@ class NodeContextProvider extends Component {
     for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
       setTimeout(() => {
         const node = nodesInShortestPathOrder[i];
-        document.getElementById(`node-${node.row}-${node.col}`).className =
-          "node node-shortest-path";
+        if (
+          document.getElementById(`node-${node.row}-${node.col}`).className !=
+            "node node-start" &&
+          document.getElementById(`node-${node.row}-${node.col}`).className !=
+            "node node-finish"
+        ) {
+          document.getElementById(`node-${node.row}-${node.col}`).className =
+            "node node-shortest-path";
+        }
       }, 50 * i);
     }
   }
@@ -158,7 +173,7 @@ const createNode = (col, row) => {
     distance: Infinity,
     isVisited: false,
     isWall: false,
-    previousNode: null
+    previousNode: null,
   };
 };
 
@@ -167,7 +182,7 @@ const getNewGridWithWallToggled = (grid, row, col) => {
   const node = newGrid[row][col];
   const newNode = {
     ...node,
-    isWall: !node.isWall
+    isWall: !node.isWall,
   };
   newGrid[row][col] = newNode;
   return newGrid;
