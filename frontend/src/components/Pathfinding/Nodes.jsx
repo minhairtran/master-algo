@@ -19,7 +19,7 @@ export default class PathfindingVisualizer extends Component {
         <div className="jumbotron">
           {grid.map((row, rowIdx) => {
             return (
-              <div key={rowIdx}>
+              <div key={rowIdx} class="node-row">
                 {row.map((node, nodeIdx) => {
                   const { row, col, isFinish, isStart, isWall } = node;
                   return (
