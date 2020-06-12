@@ -4,12 +4,15 @@ import Algorithm from "./Algorithm";
 const AllAlgorithms = (props) => {
   return (
     <section className="p-5">
-      {props.displayedAlgorithms.map((algorithm) => {
-        return <Algorithm key={algorithm.id} algorithm={algorithm} />;
-      })}
+      <div className="container">
+        <div className="row">
+          {props.displayedAlgorithms.map((algorithm) => {
+            return <Algorithm key={algorithm.id} algorithm={algorithm} />;
+          })}
+        </div>
+      </div>
     </section>
   );
-}
- 
-export default AllAlgorithms;
+};
 
+export default AllAlgorithms;
