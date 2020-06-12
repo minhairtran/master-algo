@@ -5,10 +5,12 @@ import Routes from "./components/Routes";
 import FeedbackButton from "./components/Feedback/FeedbackButton";
 
 const App = (props) => {
+  const [loginedUser, setLoginedUser] = useState();
+
   return (
     <>
-      <Navbar/>
-      <Routes dataset={props}/>
+      <Navbar loginedUser={loginedUser} setLoginedUser={setLoginedUser}/>
+      <Routes loginedUser={loginedUser} setLoginedUser={setLoginedUser} />
       <FeedbackButton />
       <Footer />
     </>

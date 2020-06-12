@@ -1,10 +1,12 @@
 import React from "react";
 import apiFeedbacksList from "./feedback/apiFeedbacksList";
 import apiFeedbackCreate from "./feedback/apiFeedbackCreate";
-import ApiAlgorithmsList from "./algorithm/ApiAlgorithmsList"
+import ApiAlgorithmsList from "./algorithm/ApiAlgorithmsList";
+import apiLogin from "./user/ApiLogin";
 
 export { apiFeedbacksList, apiFeedbackCreate };
-export { ApiAlgorithmsList }
+export { ApiAlgorithmsList };
+export { apiLogin };
 
 function getCookie(name) {
   var cookieValue = null;
@@ -30,10 +32,9 @@ export const lookup = (method, endpoint, callback, data) => {
   const xhr = new XMLHttpRequest();
   const url = `http://localhost:8000/api${endpoint}`;
   xhr.responseType = "json";
-  const csrftoken = getCookie('csrftoken');
+  const csrftoken = getCookie("csrftoken");
   xhr.open(method, url);
   xhr.setRequestHeader("Content-Type", "application/json");
-  
   if (csrftoken) {
     // xhr.setRequestHeader("HTTP_X_REQUESTED_WITH", "XMLHttpRequest");
     xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");

@@ -5,7 +5,7 @@ import "../../style.css";
 
 const About = () => {
   return (
-    <div className="container">
+    <div id="about-element" className="container">
       <div className="row padding ">
         <div className="col-sm-12 col-lg-8">
           <h2>About the project</h2>

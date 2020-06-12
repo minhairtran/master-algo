@@ -5,6 +5,7 @@ import Home from "../pages/Home";
 import Error from "../pages/Error";
 import User from "../pages/User";
 import Profile from "../pages/Profile";
+import Logout from "./User/Logout/Logout";
 
 const Routes = (props) => {
   return (
@@ -12,11 +13,16 @@ const Routes = (props) => {
       <Route exact path="/" component={Home} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/algorithms/:slug" component={PathfindingVisualizer} />
-      <Route exact path="/login-and-register" component={User} />
+      <Route exact path="/login-and-register" component={() => <User dataset={props.dataset} setLoginedUser={props.setLoginedUser}/>} />
       <Route
         exact
         path="/profile"
-        component={() => <Profile dataset={props.dataset}/>}
+        component={() => <Profile loginedUser={props.loginedUser}/>}
+      />
+      <Route
+        exact
+        path="/logout"
+        component={() => <Logout loginedUser={props.loginedUser}/>}
       />
       <Route component={Error} />
     </Switch>
