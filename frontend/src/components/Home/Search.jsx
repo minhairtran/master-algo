@@ -20,7 +20,7 @@ const Search = (props) => {
     apiAlgorithmsList(myCallback);
   }, []);
 
-  useEffect(() => {
+  const handleSearch = (e) => {
     let currentDisplayedAlgorithms = algorithmsList.filter((algorithm) => {
       return (
         algorithm.title
@@ -29,7 +29,7 @@ const Search = (props) => {
       );
     });
     setDisplayedAlgorithms(currentDisplayedAlgorithms)
-  }, [searchedAlgorithms])
+  }
 
   const updateSearch = (event) => {
     setSearchedAlgorithms(event.target.value.substr(0, 50));
@@ -43,7 +43,7 @@ const Search = (props) => {
         </div>
       </div>
       <div>
-        <form className="form-inline justify-content-center" action="#">
+        <form className="form-inline justify-content-center">
           <input
             className="form-control mr-sm-2"
             type="text"
@@ -51,7 +51,7 @@ const Search = (props) => {
             onChange={updateSearch.bind(this)}
             value={searchedAlgorithms}
           />
-          <button className="btn btn-primary" type="submit">
+          <button className="btn btn-primary" onClick={handleSearch}>
             Search
           </button>
         </form>
