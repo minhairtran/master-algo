@@ -21,7 +21,7 @@ $ git clone "https://github.com/minhairtran/visualizer-app.git"
 - Install Pillow
 
 ## Visulize Dijkstra video
-[Click here](https://drive.google.com/file/d/1gNahlIwsxWUNASi1hih5eal64EICZ5ym/view?usp=sharing)
+[Click here](https://drive.google.com/file/d/1xhDdlaC54xALJ91aKAcLcl6G-YOq5D5z/view?usp=sharing)
 
 ## Available Scripts
 
