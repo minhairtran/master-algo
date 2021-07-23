@@ -1,3 +1,7 @@
+# Link to product 
+https://masteralgo.netlify.app/
+
+
 # Pathfinding Algorithm Visualizer 
 
 Algorithm Visualizer eases the effort of studying algorithm. If you find it hard to visualise and understand algortihm, this application is for you.
